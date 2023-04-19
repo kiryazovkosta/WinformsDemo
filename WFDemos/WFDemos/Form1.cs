@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CefSharp.WinForms;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace WFDemos
 {
     public partial class Form1 : Form
     {
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -68,6 +71,17 @@ namespace WFDemos
             {
                 pricesChart.Series[countryName].Points.AddY(price);
             }
+        }
+
+        private void showMapButton_Click(object sender, EventArgs e)
+        {
+            var showMapForm = new ShowGoogleMapForm();
+            showMapForm.ShowDialog();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
